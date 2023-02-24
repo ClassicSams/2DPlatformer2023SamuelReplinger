@@ -18,8 +18,8 @@ public class CameraController : MonoBehaviour
         lastYPos = transform.position.y;
     }
 
-    // Update is called once per frame
-    void Update()
+    // Update is called once per frame los LateUpdate se hacen despues de todos los updates, evitando problemas de tirones de la camara
+    void LateUpdate()
     {
         //transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);
         //float clampedY = Mathf.Clamp(transform.position.y, minHeight, maxHeight);

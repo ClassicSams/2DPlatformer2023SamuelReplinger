@@ -33,7 +33,6 @@ public class Pickup : MonoBehaviour
                 isCollected = true;
                 UIController.sharedInstance.UpdateGemCount();
                 Instantiate(pickupEffect, transform.position, transform.rotation);
-                Destroy(gameObject);
             }
            
         }

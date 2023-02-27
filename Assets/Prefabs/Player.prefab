@@ -162,7 +162,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 3
   invincibleLenght: 1
-  invincibleCounter: 0
+  death: {fileID: 0}
 --- !u!95 &8215260665364952792
 Animator:
   serializedVersion: 4

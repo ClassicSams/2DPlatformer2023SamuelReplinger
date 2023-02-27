@@ -10,6 +10,7 @@ public class PlayerHealthController : MonoBehaviour
     private float invincibleCounter;
 
     private SpriteRenderer theSR;
+    public GameObject death;
 
 
     public static PlayerHealthController sharedInstance;
@@ -46,20 +47,25 @@ public class PlayerHealthController : MonoBehaviour
 
     public void DealWithDamage()
     {
-        currentHealth--; // currentHealth -= 1; currentHealth = currentHealth - 1;
-
-        if (currentHealth <= 0)
+        if (invincibleCounter <= 0)
         {
-            currentHealth = 0;
-            //gameObject.SetActive(false);
-            LevelManager.sharedInstance.RespawnPlayer();
-        }
-        else
-        {
-            invincibleCounter = invincibleLenght;
-            theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f);
+            currentHealth--; // currentHealth -= 1; currentHealth = currentHealth - 1;
 
-            PlayerController.sharedInstance.KnockBack();
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
+                //gameObject.SetActive(false);
+                Instantiate(death, transform.position, transform.rotation);
+                LevelManager.sharedInstance.RespawnPlayer();
+            }
+            else
+            {
+                invincibleCounter = invincibleLenght;
+                theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f);
+
+                PlayerController.sharedInstance.KnockBack();
+
+            }
 
 
         }

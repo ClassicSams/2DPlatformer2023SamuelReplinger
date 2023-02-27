@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool canDoubleJump;
     private Animator anim;
     private SpriteRenderer theSR;
-    
+    public bool isLeft;
     public static PlayerController sharedInstance;
 
     private void Awake()
@@ -62,10 +62,12 @@ public class PlayerController : MonoBehaviour
               if (theRB.velocity.x < 0)
               {
                   theSR.flipX = false;
+                isLeft = true;
               }
               else if (theRB.velocity.x > 0)
               {
                   theSR.flipX = true;
+                isLeft = false;
               }
         }
         else

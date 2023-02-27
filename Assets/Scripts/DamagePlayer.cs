@@ -23,7 +23,6 @@ public class DamagePlayer : MonoBehaviour
             //Debug.Log("Hit");
             //FindObjectOfType<PlayerHealthController>().DealWithDamage();
             //PlayerHealthController.sharedInstance.DealWithDamage();
-
             collision.GetComponent<PlayerHealthController>().DealWithDamage();
         }
     }

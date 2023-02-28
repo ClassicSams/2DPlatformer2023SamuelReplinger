@@ -11,6 +11,10 @@ public class EnemyController : MonoBehaviour
     private bool movingRight;
     private Rigidbody2D theRB;
     private SpriteRenderer theSR;
+    public float moveTime, waitTime;
+    private float moveCount, waitCount;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,28 +23,52 @@ public class EnemyController : MonoBehaviour
 
         leftPoint.parent = null;
         rightPoint.parent = null;
+        movingRight = true;
+        moveCount = moveTime;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (movingRight)
+        if (moveCount > 0)
         {
-            theRB.velocity = new Vector2(moveSpeed, theRB.velocity.y);
-            theSR.flipX = true;
-            if (transform.position.x > rightPoint.position.x)
+
+            moveCount -= Time.deltaTime;
+
+            if (movingRight)
             {
-                movingRight = false;
+                theRB.velocity = new Vector2(moveSpeed, theRB.velocity.y);
+                theSR.flipX = true;
+                if (transform.position.x > rightPoint.position.x)
+                {
+                    movingRight = false;
+                }
+            }
+            else
+            {
+                theRB.velocity = new Vector2(-moveSpeed, theRB.velocity.y);
+                theSR.flipX = false;
+                if (transform.position.x < leftPoint.position.x)
+                {
+                    movingRight = true;
+                }
+            }
+            //waitTime es el segundo de espera que hemos puesto en Unity
+            if (moveCount <= 0)
+            {
+                waitCount = Random.Range(waitTime * .25f, waitTime * 1.25f);
             }
         }
-        else 
+        else if (waitCount > 0)
         {
-            theRB.velocity = new Vector2(-moveSpeed, theRB.velocity.y);
-            theSR.flipX = false;
-            if (transform.position.x < leftPoint.position.x)
+            waitCount -= Time.deltaTime;
+            theRB.velocity = new Vector2(0f, theRB.velocity.y);
+            if (waitCount <= 0)
             {
-                movingRight = true;
+                moveCount = moveTime;
             }
         }
+ 
     }
 }

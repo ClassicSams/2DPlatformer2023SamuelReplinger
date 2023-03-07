@@ -134,7 +134,9 @@ GameObject:
   - component: {fileID: 153477846}
   - component: {fileID: 153477845}
   - component: {fileID: 153477848}
+  - component: {fileID: 153477851}
   - component: {fileID: 153477847}
+  - component: {fileID: 153477850}
   - component: {fileID: 153477849}
   m_Layer: 0
   m_Name: EnemySlime
@@ -245,6 +247,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &153477850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153477844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549df4c09ca0f3a4abab5f7ccbc2bb37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &153477851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153477844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e90546a046b96344899b36f26ea74a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEffect: {fileID: 4042055688398527152, guid: c61bdea05fd082345881dc0b0b768e73, type: 3}
 --- !u!1 &531731620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8329,6 +8356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1638954825}
   - component: {fileID: 1638954826}
+  - component: {fileID: 1638954827}
   m_Layer: 0
   m_Name: SlimeSprite
   m_TagString: Untagged
@@ -8403,6 +8431,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1638954827
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638954824}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.75, y: 4}
+    newSize: {x: 3.75, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1656286597
 GameObject:
   m_ObjectHideFlags: 0

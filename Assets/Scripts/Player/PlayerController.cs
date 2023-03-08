@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer theSR;
     public bool isLeft;
     public static PlayerController sharedInstance;
-
+    public float bounceForce;
     private void Awake()
     {
         if(sharedInstance == null)
@@ -94,4 +94,9 @@ public class PlayerController : MonoBehaviour
         anim.SetTrigger("isHurt");
 
     }
+    public void Bounce()
+    {
+        theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
+    }
+
 }

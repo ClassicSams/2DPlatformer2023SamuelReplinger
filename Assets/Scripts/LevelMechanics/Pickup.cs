@@ -32,6 +32,7 @@ public class Pickup : MonoBehaviour
                 LevelManager.sharedInstance.gemCollected++;
                 isCollected = true;
                 UIController.sharedInstance.UpdateGemCount();
+                AudioManager.sharedInstance.PlaySFX(6);
                 Instantiate(pickupEffect, transform.position, transform.rotation);
                 Destroy(gameObject);
             }

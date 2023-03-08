@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f46418cdf752a41bc97ab86c6e471d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collective: {fileID: 0}
+  chanceToDrop: 25
 --- !u!1 &8215260665364952798
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +222,7 @@ MonoBehaviour:
   knockBackLenght: 0.25
   knockBackForce: 8
   isLeft: 0
+  bounceForce: 0
 --- !u!114 &2364464775374074742
 MonoBehaviour:
   m_ObjectHideFlags: 0

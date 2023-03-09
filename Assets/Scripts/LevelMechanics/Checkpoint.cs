@@ -9,6 +9,8 @@ public class Checkpoint : MonoBehaviour
 
     public Sprite cpOn, cpOff;
 
+    public bool isActive;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +25,11 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && theSR.sprite == cpOff)
         {
             CheckpointController.sharedInstance.DeactivateCheckpoints();
-
             theSR.sprite = cpOn;
-
+            AudioManager.sharedInstance.PlaySFX(11);         
             CheckpointController.sharedInstance.SetSpawnPoint(transform.position);
         }
     }

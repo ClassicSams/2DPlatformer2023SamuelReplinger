@@ -56,13 +56,14 @@ public class PlayerHealthController : MonoBehaviour
                 currentHealth = 0;
                 //gameObject.SetActive(false);
                 Instantiate(death, transform.position, transform.rotation);
+                AudioManager.sharedInstance.PlaySFX(8);
                 LevelManager.sharedInstance.RespawnPlayer();
             }
             else
             {
                 invincibleCounter = invincibleLenght;
                 theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f);
-
+                AudioManager.sharedInstance.PlaySFX(10);
                 PlayerController.sharedInstance.KnockBack();
 
             }

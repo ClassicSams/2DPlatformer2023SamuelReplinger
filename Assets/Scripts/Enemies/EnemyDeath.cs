@@ -22,5 +22,6 @@ public class EnemyDeath : MonoBehaviour
     {
         transform.gameObject.SetActive(false);
         Instantiate(deathEffect, transform.GetChild(0).position, transform.GetChild(0).rotation);
+        AudioManager.sharedInstance.PlaySFX(3);
     }
 }

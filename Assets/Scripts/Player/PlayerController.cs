@@ -49,15 +49,17 @@ public class PlayerController : MonoBehaviour
                   {
                      theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                       canDoubleJump = true;
-                  }
-                  else
+                    AudioManager.sharedInstance.PlaySFX(9);
+                }
+                else
                   {
                       if (canDoubleJump)
                       {
                           theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                           canDoubleJump = false;
-                      }
-                  }
+                        AudioManager.sharedInstance.PlaySFX(9);
+                    }
+                }
               }
               if (theRB.velocity.x < 0)
               {
@@ -97,6 +99,7 @@ public class PlayerController : MonoBehaviour
     public void Bounce()
     {
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
+        AudioManager.sharedInstance.PlaySFX(9);
     }
 
 }

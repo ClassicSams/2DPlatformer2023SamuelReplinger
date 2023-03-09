@@ -44,6 +44,7 @@ public class Pickup : MonoBehaviour
             {
                 PlayerHealthController.sharedInstance.HealPlayer();
                 isCollected = true;
+                AudioManager.sharedInstance.PlaySFX(7);
                 Destroy(gameObject);
             }
         }

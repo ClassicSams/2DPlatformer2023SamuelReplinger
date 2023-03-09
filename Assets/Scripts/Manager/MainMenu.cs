@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
-    public string StartScene;
+    public string startScene;
 
 
 
@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        SceneManager.LoadScene(startScene);
 
 
     }

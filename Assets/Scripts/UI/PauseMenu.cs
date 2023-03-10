@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class PauseMenu : MonoBehaviour
+{
+    public string levelSelect, mainMenu;
+
+    public GameObject pauseMenu;
+
+    public bool isPaused;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            PauseUnpause();
+        }
+    }
+
+    public void PauseUnpause()
+
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+            pauseMenu.SetActive(false);
+        }
+
+        else
+        {
+            isPaused = true;
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+
+    }
+
+
+
+    public void LevelSelect()
+    {
+        SceneManager.LoadScene(levelSelect);
+        Time.timeScale = 1f;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(mainMenu);
+        Time.timeScale = 1f;
+    }
+
+}

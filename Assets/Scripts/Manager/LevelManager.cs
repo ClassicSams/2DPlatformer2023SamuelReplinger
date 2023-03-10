@@ -40,6 +40,9 @@ public class LevelManager : MonoBehaviour
     {
         PlayerController.sharedInstance.gameObject.SetActive(false);
         yield return new WaitForSeconds(waitToRespawn);
+        UIController.sharedInstance.FadeToBlack();
+        yield return new WaitForSeconds(waitToRespawn);
+        UIController.sharedInstance.FadeFromBlack();
         PlayerController.sharedInstance.gameObject.SetActive(true);
         PlayerController.sharedInstance.transform.position = CheckpointController.sharedInstance.spawnPoint;
         PlayerHealthController.sharedInstance.currentHealth = PlayerHealthController.sharedInstance.maxHealth;

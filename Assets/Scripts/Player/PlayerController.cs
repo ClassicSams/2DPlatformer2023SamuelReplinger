@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     public PauseMenu reference;
     public static PlayerController sharedInstance;
     public float bounceForce;
+    public bool stopInput;
+
+
+    
     private void Awake()
     {
         if(sharedInstance == null)
@@ -38,7 +42,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!reference.isPaused)
+        //Si el juego está pausado, no funciona el movimiento.Tampoco si el jugador está parado
+        if (!reference.isPaused && !stopInput)
         {
 
           if (knockBackCounter <= 0)
@@ -103,6 +108,14 @@ public class PlayerController : MonoBehaviour
     {
         theRB.velocity = new Vector2(theRB.velocity.x, bounceForce);
         AudioManager.sharedInstance.PlaySFX(9);
+    }
+
+
+    //Método para parar al jugador
+    public void StopPlayer()
+    {
+        theRB.velocity = Vector2.zero;
+
     }
 
 }

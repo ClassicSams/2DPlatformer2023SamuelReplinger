@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
 
     private bool shouldFadeToBlack, shouldFadeFromBlack;
 
-
+    public TextMeshProUGUI levelCompleteText; 
 
     private void Awake()
     {
@@ -45,6 +45,14 @@ public class UIController : MonoBehaviour
         {
             fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
             if (fadeScreen.color.a == 1f)
+            {
+                shouldFadeToBlack = false;
+            }
+        }
+        if (shouldFadeFromBlack)
+        {
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+            if (fadeScreen.color.a == 0f)
             {
                 shouldFadeToBlack = false;
             }

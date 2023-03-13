@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
 
     public float waitToRespawn;
 
     public int gemCollected;
+
+    public string levelToLoad;
 
     public static LevelManager sharedInstance;
 
@@ -48,4 +50,34 @@ public class LevelManager : MonoBehaviour
         PlayerHealthController.sharedInstance.currentHealth = PlayerHealthController.sharedInstance.maxHealth;
         UIController.sharedInstance.UpdateHealthDisplay();
     }
+
+    
+    public void ExitLevel()
+    {
+        StartCoroutine(ExitLevelCo());
+    }
+    
+    
+    //Corrutina de terminar un nivel
+    private IEnumerator ExitLevelCo()
+    {
+        //paramos inputs del jugador
+        PlayerController.sharedInstance.stopInput = true;
+        //Paramos el movimiento del jugador
+        PlayerController.sharedInstance.StopPlayer();
+        //
+        AudioManager.sharedInstance.bgm.Stop();
+        //reproducimos la musica
+        AudioManager.sharedInstance.levelEndMusic.Play();
+        //Cartel nivel final
+        UIController.sharedInstance.levelCompleteText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        UIController.sharedInstance.FadeToBlack();
+        yield return new WaitForSeconds(1.5f);
+
+        SceneManager.LoadScene(levelToLoad);
+
+    }
+
+
 }

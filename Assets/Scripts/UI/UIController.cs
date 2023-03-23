@@ -54,7 +54,7 @@ public class UIController : MonoBehaviour
             fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
             if (fadeScreen.color.a == 0f)
             {
-                shouldFadeToBlack = false;
+                shouldFadeFromBlack = false;
             }
         }
     }
@@ -82,6 +82,12 @@ public class UIController : MonoBehaviour
                 heart1.sprite = heartEmpty;
                 heart2.sprite = heartEmpty;
                 heart3.sprite = heartEmpty;
+                break;
+            default:
+                heart1.sprite = heartEmpty;
+                heart2.sprite = heartEmpty;
+                heart3.sprite = heartEmpty;
+                //Cerramos el caso
                 break;
         }
     }
